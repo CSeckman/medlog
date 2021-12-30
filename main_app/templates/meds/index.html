@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/med_index.css' %}"/>
+{% endblock %}
+
+{% block content %}
+
+<section class="card-container">
+  {% for med in meds %}
+    <div class="card">
+      <div class="card-content">
+        <div class="card-img-container">
+          <img 
+            src="{% static '' %}" 
+            alt=''
+          >
+        </div>
+        <h2 class="card-title">{{ med.name }}</h2>
+        <p># of Doses: {{ med.num_of_doses }}</p>
+        <p>Dose: {{ med.dose }}</p>
+        {% if med.other_details %}
+          <p>{{ med.other_details }}</p>
+        {% else %}
+          <p></p>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
