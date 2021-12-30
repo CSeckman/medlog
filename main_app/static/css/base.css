@@ -1,3 +1,37 @@
-/* body {
-  background-color: ;
-} */
+html {
+  box-sizing: border-box
+}
+
+header {
+  width: 100%;
+  background: var(--nav-bg-ff);
+  border-bottom: var(--borders);
+}
+
+nav {
+  margin: 10px;
+}
+
+ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: orange;
+}
+nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+nav li {
+  padding: 5px 20px;
+}
