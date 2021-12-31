@@ -18,7 +18,8 @@
           >
         </div>
         <h2 class="card-title">{{ med.name }}</h2>
-        <p># of Doses: {{ med.num_of_doses }}</p>
+        <p>{{ med.description }} </p>
+        <p>{{ med.num_of_doses }} total doses</p>
         <p>Dose: {{ med.dose }}</p>
         {% if med.other_details %}
           <p>{{ med.other_details }}</p>
