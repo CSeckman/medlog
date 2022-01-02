@@ -2,19 +2,20 @@
 {% load static %}
 
 {% block head %}
+
 <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"/>
 {% endblock %}
 
 {% block content %}
 
-<section class="logo-container">
+<section>
   <div class="med-container">
     <img class="med-home-img" src="{% static 'images/36.png' %}" alt="Med Log" />
   </div>
-  <img 
+  {% comment %} <img 
     src="{% static 'images/logotype.svg' %}" 
     alt="Text reads: Med Log"
-  />
+  /> {% endcomment %}
 </section>
 
 {% endblock %}

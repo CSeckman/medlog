@@ -1,0 +1,27 @@
+.card-container {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.card > a {
+  text-decoration: none;
+}
+.card-header {
+  color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card {
+  margin: 10px;
+  min-width: 200px;
+}
+
+.log-icon {
+  max-width: 40px;
+}

@@ -7,15 +7,15 @@ header {
   background: var(--nav-bg-ff);
   border-bottom: var(--borders);
 }
-
+/* 
 nav {
   margin: 10px;
-}
+} */
 
 ul {
   margin: 0;
   list-style: none;
-  padding: 0;
+  padding: 10px 0px;
 }
 
 nav ul {
@@ -23,11 +23,12 @@ nav ul {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  background-color: orange;
+  background-color: #f75336;
 }
+
 nav a {
   text-decoration: none;
-  color: black;
+  color: white;
   font-weight: 300;
   font-size: 16px;
 }
@@ -35,3 +36,4 @@ nav a {
 nav li {
   padding: 5px 20px;
 }
+
