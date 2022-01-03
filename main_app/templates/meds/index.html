@@ -13,20 +13,24 @@
       <div class="card-header">
         <h2>{{ med.name }}</h2>
         <a href="/meds/{{ med.id }}">
-          <img class="log-icon" src="/static/images/19.png" alt="Log">
+          <img class="log-icon" src="/static/images/19.png" title="See Log" alt="Log">
         </a>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">{{ med.description }}</li>
-        <li class="list-group-item">{{ med.num_of_doses }} total doses</li>
+        {% if med.total %}
+          <li class="list-group-item">
+            {{ med.total }} total doses
+          </li>
+        {% else %}
+        {% endif %}
         <li class="list-group-item">Dose: {{ med.dose }}</li>
-        <li class="list-group-item">
-          {% if med.other_details %}
+        {% if med.other_details %}
+          <li class="list-group-item">
             {{ med.other_details }}
-          {% else %}
-            ''
-          {% endif %}
-        </li>
+          </li>
+        {% else %}
+        {% endif %}
       </ul>
     </div>
   {% endfor %}
