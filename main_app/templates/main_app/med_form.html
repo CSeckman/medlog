@@ -9,14 +9,24 @@
 
 <div class="page-header">
   <img class="form-icon" src="{% static 'images/5.png' %}" alt="Med Form"/>
-  <h1>Add a Medication</h1>
+  {% if object %}
+    <h1>Edit Medicine Details</h1>
+  {% else %}
+    <h1>Add a Medication</h1>
+  {% endif %}
 </div>
 <form action="" method="post" class="form-container">
   {% csrf_token %}
   <table>
     {{ form.as_table }}
   </table>
-  <button type="submit" class="btn btn-dark">Submit!</button>
+  <button type="submit" class="btn btn-dark">
+    {% if object %}
+      Submit Changes
+    {% else %}
+      Add Medicine
+    {% endif %}
+  </button>
 </form>
 
 {% endblock %}

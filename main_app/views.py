@@ -22,3 +22,13 @@ class MedCreate(CreateView):
   model = Med
   fields = '__all__'
   success_url = '/meds/'
+  
+
+class MedUpdate(UpdateView):
+  model = Med
+  fields = '__all__' 
+  
+
+class MedDelete(DeleteView):
+  model = Med
+  success_url = '/meds/'

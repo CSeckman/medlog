@@ -22,27 +22,18 @@
 table {
   padding: 0;
   width: 100%;
-  border-spacing: 0 40px;
 }
 
 th {
   text-align: left;
   padding: 6px 2px 0 0;
-  font-weight: normal;
   vertical-align: top;
-  font-size: var(--font-reg);
 }
 
 
 td > * {
   width: 85%;
   padding: 2px 4px;
-  font-size: var(--font-l);
-}
-
-td > textarea {
-  height: calc(4 * var(--font-l) + 8px);
-  font-family: inherit;
 }
 
 .btn {
