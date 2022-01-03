@@ -27,3 +27,6 @@ class Log(models.Model):
   
   def __str__(self):
       return f"{self.dose_given} given on {self.date}"
+    
+  class Meta:
+    ordering = ['-date']
