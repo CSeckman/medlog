@@ -12,7 +12,7 @@
     <div class="card" style="width: 18rem;">
       <div class="card-header">
         <h2>{{ med.name }}</h2>
-        <a href="/meds/{{ med.id }}">
+        <a href="{% url 'med_detail' med.id %}">
           <img class="log-icon" src="/static/images/19.png" title="See Log" alt="Log">
         </a>
       </div>

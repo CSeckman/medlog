@@ -28,8 +28,9 @@
     </div> {% endcomment %}
     <nav>
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/meds">All Medications</a></li>
+        <li><a href={% url 'home' %}>Home</a></li>
+        <li><a href={% url 'med_index' %}>All Medications</a></li>
+        <li><a href={% url 'meds_create' %}>Add Medication</a></li>
       </ul>
     </nav>
   </header>

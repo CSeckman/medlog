@@ -1,0 +1,18 @@
+.page-header {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+}
+
+.form-icon {
+  max-width: 50px;
+  margin-right: 20px;
+}
+
+.form-container {
+  margin-left: 30px;
+}
+
+.btn-dark {
+  margin: 30px 5px;
+}

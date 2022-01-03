@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}"/>
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+  <img class="form-icon" src="{% static 'images/5.png' %}" alt="Med Form"/>
+  <h1>Add a Medication</h1>
+</div>
+<form action="" method="post" class="form-container">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table }}
+  </table>
+  <button type="submit" class="btn btn-dark">Submit!</button>
+</form>
+
+{% endblock %}

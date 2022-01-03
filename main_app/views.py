@@ -17,3 +17,8 @@ def med_index(request):
 def med_detail(request, med_id):
   med = Med.objects.get(id=med_id)
   return render(request, 'meds/details.html', { 'med': med })
+
+class MedCreate(CreateView):
+  model = Med
+  fields = '__all__'
+  success_url = '/meds/'
