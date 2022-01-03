@@ -10,7 +10,7 @@
 <div class="page-header">
   <img class="form-icon" src="{% static 'images/5.png' %}" alt="Med Form"/>
   {% if object %}
-    <h1>Edit Medicine Details</h1>
+    <h1>Edit {{ med.name }} Details</h1>
   {% else %}
     <h1>Add a Medication</h1>
   {% endif %}

@@ -26,7 +26,7 @@ class MedCreate(CreateView):
 
 class MedUpdate(UpdateView):
   model = Med
-  fields = '__all__' 
+  fields = ['description','dose', 'other_details'] 
   
 
 class MedDelete(DeleteView):

@@ -13,5 +13,5 @@ class Med(models.Model):
     return self.name
   
   def get_absolute_url(self):
-      return reverse("med_detail", kwargs={"pk": self.pk})
+      return reverse("med_detail", kwargs={"med_id": self.id})
   
