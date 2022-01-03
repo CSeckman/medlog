@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponse
 
@@ -35,3 +35,11 @@ class MedUpdate(UpdateView):
 class MedDelete(DeleteView):
   model = Med
   success_url = '/meds/'
+
+def log_dose(request, med_id):
+  form = LogForm(request.POST)
+  if form.is_valid():
+    new_log = form.save(commit=False)
+    new_log.med_id = med_id
+    new_log.save()
+  return redirect('med_detail', med_id=med_id)
