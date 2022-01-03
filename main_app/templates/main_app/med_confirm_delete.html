@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}"/>
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+  <img class="delete-img" src="{% static 'images/36.png' %}" alt="prescription bottle"/>
+  <h1>Delete Med?</h1>
+</div>
+<div class="delete-div">
+  <h2>Are you sure you want to delete {{ object.name }}?</h2>
+
+  <form action="" method="POST" class="form">
+    {% csrf_token %}
+    <a 
+      href="{% url 'med_detail' med.id %}" 
+      class="btn btn-secondary"
+    >
+      Cancel
+    </a>
+    <button type="submit" class="btn btn-danger">Yes - Delete Med</button>
+  </form>
+</div>
+
+{% endblock %}

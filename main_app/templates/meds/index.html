@@ -11,7 +11,7 @@
   {% for med in meds %}
     <div class="card" style="width: 18rem;">
       <div class="card-header">
-        <h2>{{ med.name }}</h2>
+        <h4>{{med.patient}}'s {{ med.medicine }}</h4>
         <a href="{% url 'med_detail' med.id %}">
           <img class="log-icon" src="/static/images/19.png" title="See Log" alt="Log">
         </a>

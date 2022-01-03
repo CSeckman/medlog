@@ -3,7 +3,8 @@ from django.urls import reverse
 
 # Create your models here.
 class Med(models.Model):
-  name = models.CharField(max_length=50)
+  medicine = models.CharField(max_length=50)
+  patient = models.CharField(max_length=50, null=True)
   description = models.TextField(max_length=200)
   total = models.IntegerField(blank=True, null=True)
   dose = models.CharField(max_length=100)
@@ -15,3 +16,12 @@ class Med(models.Model):
   def get_absolute_url(self):
       return reverse("med_detail", kwargs={"med_id": self.id})
   
+
+class Log(models.Model):
+  date = models.DateField()
+  time = models.TimeField() 
+  dose_given = models.CharField(max_length=100)
+  administered_by = models.CharField(max_length=50)
+  
+  def __str__(self):
+      return self.name
