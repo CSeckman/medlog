@@ -12,4 +12,8 @@ def about(request):
 
 def med_index(request):
   meds = Med.objects.all()
-  return render(request, 'meds/index.html', {"meds": meds})
+  return render(request, 'meds/index.html', { "meds": meds })
+
+def med_detail(request, med_id):
+  med = Med.objects.get(id=med_id)
+  return render(request, 'meds/details.html', { 'med': med })
