@@ -7,13 +7,10 @@
 
 {% block content %}
 
-<section class="card-container">
+<section class="card-container card-form">
     <div class="card" style="width: 18rem;">
       <div class="card-header">
-        <h4>{{med.patient}}'s {{ med.medicine }}</h4>
-        <a href="">
-          <img class="log-icon" src="/static/images/19.png" alt="Log">
-        </a>
+        <h2>{{med.patient}}'s {{ med.name }}</h2>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">{{ med.description }}</li>
@@ -34,6 +31,35 @@
         </li>
       </ul>
     </div>
-</section>
+    <div class='card'>
+      <div class="card-header">
+        <h2>Log A Given Dose</h2>
+      </div>
+      <div class='card-body'>
+        <form method="post">
+          {% csrf_token %}
+          {{ log_form.as_p }}
+          <button type="submit" class="btn btn-dark">Log Dose</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <div class="log-table">
+    <table class='table'>
+      <thead>
+        <tr><th scope='col'>Date</th><th scope='col'>Time</th><th scope='col'>Dose</th><th scope='col'>Administered By</th></tr>
+      </thead>
+      <tbody>
+        {% for log in med.log_set.all %}
+          <tr>
+            <td>{{log.date}}</td>
+            <td>{{log.time}}</td>
+            <td>{{log.dose}}</td>
+            <td>{{log.administered_by}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 
 {% endblock %}

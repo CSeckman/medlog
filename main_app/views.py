@@ -3,6 +3,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponse
 
 from .models import Med
+from .forms import LogForm
 
 def home(request):
   return render(request, 'home.html')
@@ -16,7 +17,9 @@ def med_index(request):
 
 def med_detail(request, med_id):
   med = Med.objects.get(id=med_id)
-  return render(request, 'meds/details.html', { 'med': med })
+  log_form = LogForm()
+  return render(request, 'meds/details.html', { 'med': med, 'log_form': log_form })
+
 
 class MedCreate(CreateView):
   model = Med
