@@ -19,7 +19,7 @@
 <body>
   <header>
     <nav>
-      <a href="{% url 'home' %}"><img class='home-img' src="{% static 'images/17.png' %}" alt=""></a>
+      <a class="logo-title" href="{% url 'home' %}"><img class='home-img' src="{% static 'images/17.png' %}" alt=""> <h2 class='title'>Med Log</h2></a>
       <ul>
         {% if user.is_authenticated %}
           <li><a href="{% url 'home' %}">Home</a></li>
