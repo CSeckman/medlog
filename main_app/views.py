@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.http import HttpResponse
 
@@ -14,33 +16,40 @@ class Home(LoginView):
 def about(request):
   return render(request, 'about.html')
 
+@login_required(login_url='/')
 def med_index(request):
-  meds = Med.objects.all()
+  meds = Med.objects.filter(user=request.user)
+
   return render(request, 'meds/index.html', { "meds": meds })
 
+@login_required(login_url='/')
 def med_detail(request, med_id):
   med = Med.objects.get(id=med_id)
   log_form = LogForm()
   return render(request, 'meds/details.html', { 'med': med, 'log_form': log_form })
 
 
-class MedCreate(CreateView):
+class MedCreate(LoginRequiredMixin, CreateView):
+  login_url = '/'
   model = Med
-  fields = '__all__'
+  fields = ['name', 'patient', 'description', 'total_doses', 'dose', 'other_details'] 
   
   def form_valid(self, form):
     form.instance.user = self.request.user
     return super().form_valid(form)
 
-class MedUpdate(UpdateView):
+class MedUpdate(LoginRequiredMixin, UpdateView):
+  login_url = '/'
   model = Med
   fields = ['description','dose', 'other_details'] 
   
 
-class MedDelete(DeleteView):
+class MedDelete(LoginRequiredMixin, DeleteView):
+  login_url = '/'
   model = Med
   success_url = '/meds/'
 
+@login_required(login_url='/')
 def log_dose(request, med_id):
   form = LogForm(request.POST)
   if form.is_valid():
@@ -56,7 +65,7 @@ def signup(request):
     if form.is_valid():
       user = form.save()
       login(request, user)
-      return redirect('cats_index')
+      return redirect('meds_create')
     else:
       error_message = 'Invalid sign up - try again'
   form = UserCreationForm()
