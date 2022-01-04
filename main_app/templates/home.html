@@ -8,14 +8,19 @@
 
 {% block content %}
 
-<section>
-  <div class="med-container">
+<section class='login-divs'>
+  <div class="med-container l-div">
     <img class="med-home-img" src="{% static 'images/36.png' %}" alt="Med Log" />
   </div>
-  {% comment %} <img 
-    src="{% static 'images/logotype.svg' %}" 
-    alt="Text reads: Med Log"
-  /> {% endcomment %}
+  <div class=" l-div">
+    <form action="{% url 'home' %}" method="post" class='login'>
+      <h1>Login</h1>
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="hidden" name="next" value="{{ next }}">
+      <button type="submit" class="btn btn-secondary">Login</button>
+    </form>
+  </div>
 </section>
 
 {% endblock %}

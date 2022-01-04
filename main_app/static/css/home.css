@@ -7,3 +7,27 @@ img {
   max-width: 200px;
 }
 
+.login-divs {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.login {
+  border: black solid 1px;
+  border-radius: 5px;
+  padding: 30px 15px;
+  height: 350px;
+}
+
+.l-div {
+  margin: 30px;
+}
+
+.login > p {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

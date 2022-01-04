@@ -18,19 +18,17 @@
 </head>
 <body>
   <header>
-    {% comment %} <div class="header-logo-container">
-      <a href="/">
-        <img 
-          src="" 
-          alt="Med Log"
-        >
-      </a>
-    </div> {% endcomment %}
     <nav>
       <ul>
-        <li><a href={% url 'home' %}>Home</a></li>
-        <li><a href={% url 'med_index' %}>All Medications</a></li>
-        <li><a href={% url 'meds_create' %}>Add Medication</a></li>
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'med_index' %}">My Medications</a></li>
+          <li><a href="{% url 'meds_create' %}">Add Medication</a></li>
+          <li><a href="{% url 'logout' %}">Log out</a></li>
+        {% else %}
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'home' %}">Login</a></li>
+        {% endif %}
       </ul>
     </nav>
   </header>
