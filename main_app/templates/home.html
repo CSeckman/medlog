@@ -10,8 +10,10 @@
 
 <section class='login-divs'>
   <div class="med-container l-div">
+    <h1>MED LOG</h1>
     <img class="med-home-img" src="{% static 'images/36.png' %}" alt="Med Log" />
   </div>
+  {% if not user.is_authenticated %}
   <div class=" l-div">
     <form action="{% url 'home' %}" method="post" class='login'>
       <h1>Login</h1>
@@ -21,6 +23,7 @@
       <button type="submit" class="btn btn-secondary">Login</button>
     </form>
   </div>
+  {% endif %}
 </section>
 
 {% endblock %}

@@ -7,7 +7,7 @@ img {
   max-width: 200px;
 }
 
-.login-divs {
+.login-divs, .signup-divs {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -19,11 +19,17 @@ img {
   border: black solid 1px;
   border-radius: 5px;
   padding: 30px 15px;
-  height: 350px;
+  width: 250px;
+  height: 380px;
 }
 
-.l-div {
+.l-div, .s-div {
   margin: 30px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
 }
 
 .login > p {
@@ -32,8 +38,21 @@ img {
   width: 100%;
 }
 
+.signup-form-container {
+  border: solid 1px black;
+  padding: 15px;
+}
+
+.helptext {
+  font-size: 10px;
+}
+
+th {
+  padding-right: 10px;
+}
+
 @media only screen and (max-width: 600px) {
-  .login-divs {
+  .login-divs, .signup-divs {
     flex-direction: column;
   }
 
@@ -41,7 +60,11 @@ img {
     width: 50px;
   }
 
-  .l-div {
+  .l-div, .s-div{
     margin: 10px;
+  }
+
+  .signup-form-container {
+    margin: 20px;
   }
 }
