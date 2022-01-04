@@ -1,11 +1,30 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"/>
+{% endblock %}
 
 {% block content %}
 
-<h1>About Med Log</h1>
-<hr />
-<p>
-  Med Log is a medicine dose tracker for individuals, caregivers and families!
-</p>
+<section class='login-divs'>
+  <div class="med-container l-div">
+    {% if not user.is_authenticated %}
+    <h1>MED LOG</h1>
+    {% endif %}
+    <img class="med-home-img" src="{% static 'images/36.png' %}" alt="Med Log" />
+  </div>
+  <div class="l-div login about">
+    <h3>About Med Log</h3>
+    </br>
+    <p>
+      Med Log is a medication tracker for individuals, caregivers and families!
+    </p>
+    <p>
+      Sign up, submit your medication information, and log each time the medicine is administered to the patient. 
+    </p>
+  </div>
+</section>
 
 {% endblock %}

@@ -10,7 +10,9 @@
 
 <section class='login-divs'>
   <div class="med-container l-div">
+    {% if not user.is_authenticated %}
     <h1>MED LOG</h1>
+    {% endif %}
     <img class="med-home-img" src="{% static 'images/36.png' %}" alt="Med Log" />
   </div>
   {% if not user.is_authenticated %}
@@ -22,6 +24,17 @@
       <input type="hidden" name="next" value="{{ next }}">
       <button type="submit" class="btn btn-secondary">Login</button>
     </form>
+  </div>
+  {% else %}
+  <div class="l-div login about">
+    <h3>About Med Log</h3>
+    </br>
+    <p>
+      Med Log is a medication tracker for individuals, caregivers and families!
+    </p>
+    <p>
+      Sign up, submit your medication information, and log each time the medicine is administered to the patient. 
+    </p>
   </div>
   {% endif %}
 </section>
