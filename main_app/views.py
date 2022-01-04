@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.http import HttpResponse
 
-from .models import Med
+from .models import Med, Log
 from .forms import LogForm
 
 class Home(LoginView):
@@ -26,7 +26,9 @@ def med_index(request):
 def med_detail(request, med_id):
   med = Med.objects.get(id=med_id)
   log_form = LogForm()
-  return render(request, 'meds/details.html', { 'med': med, 'log_form': log_form })
+  logs = Log.objects.filter(med=med_id)
+  doses_left = med.total_doses - len(logs)
+  return render(request, 'meds/details.html', { 'med': med, 'log_form': log_form, 'doses_left': doses_left})
 
 
 class MedCreate(LoginRequiredMixin, CreateView):

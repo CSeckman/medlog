@@ -53,6 +53,12 @@
       </div>
     </div>
   </section>
+  {% if doses_left is 1 %}
+    <h2 class="doses-left">{{doses_left}} dose left in this prescription!</h2>
+  {% elif doses_left > 1 %}
+    <h2 class="doses-left">{{doses_left}} doses left in this prescription</h2>
+  {% else %}
+  {% endif %}
   <div class="log-table">
     <table class='table'>
       <thead>
