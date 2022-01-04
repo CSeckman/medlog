@@ -62,3 +62,16 @@
 .doses-left {
   text-align: center;
 }
+
+.add-med {
+  margin-top: 50px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.add-med-img {
+  width: 40%;
+}

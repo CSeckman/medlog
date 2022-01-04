@@ -8,32 +8,39 @@
 {% block content %}
 
 <section class="card-container">
-  {% for med in meds %}
-    <div class="card" style="width: 18rem;">
-      <div class="card-header">
-        <h4>{{med.patient}}'s {{ med.name }}</h4>
-        <a href="{% url 'med_detail' med.id %}">
-          <img class="log-icon" src="/static/images/19.png" title="See Log" alt="Log">
-        </a>
+  {% if meds %}
+    {% for med in meds %}
+      <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          <h4>{{med.patient}}'s {{ med.name }}</h4>
+          <a href="{% url 'med_detail' med.id %}">
+            <img class="log-icon" src="/static/images/19.png" title="See Log" alt="Log">
+          </a>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{ med.description }}</li>
+          {% if med.total %}
+            <li class="list-group-item">
+              {{ med.total }} total doses
+            </li>
+          {% else %}
+          {% endif %}
+          <li class="list-group-item">Dose: {{ med.dose }}</li>
+          {% if med.other_details %}
+            <li class="list-group-item">
+              {{ med.other_details }}
+            </li>
+          {% else %}
+          {% endif %}
+        </ul>
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">{{ med.description }}</li>
-        {% if med.total %}
-          <li class="list-group-item">
-            {{ med.total }} total doses
-          </li>
-        {% else %}
-        {% endif %}
-        <li class="list-group-item">Dose: {{ med.dose }}</li>
-        {% if med.other_details %}
-          <li class="list-group-item">
-            {{ med.other_details }}
-          </li>
-        {% else %}
-        {% endif %}
-      </ul>
-    </div>
-  {% endfor %}
+    {% endfor %}
+  {% else %}
+    <div class="add-med">
+      <h1>Add A Medication</h1>
+      <a href="{% url 'meds_create' %}"><img class="add-med-img" src="{% static 'images/5.png' %}" alt="Add Med!"/></a>
+    </div> 
+  {% endif %}
 </section>
 
 
