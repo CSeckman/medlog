@@ -18,12 +18,26 @@ ul {
   padding: 10px 0px;
 }
 
-nav ul {
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #ff6154;
+}
+
+.home-img {
+  width: 50px;
+  margin: 10px 20px;
+}
+
+nav > ul {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: row;
   flex-wrap: wrap;
-  background-color: #ff6154;
 }
 
 nav a {
@@ -37,3 +51,8 @@ nav li {
   padding: 5px 20px;
 }
 
+@media only screen and (max-width: 600px) {
+  nav {
+    flex-direction: column;
+  }
+}
